@@ -16,6 +16,7 @@ void *postav(void *arg) {
         if (ready) {
             printf("невозможно отправить\n");
         } else {
+            pthread_mutex_unlock(&mutex);
             val_to_send = rand()%100 + 1;
             printf("отправлено\t%d\n", val_to_send);
             ready = 1;
